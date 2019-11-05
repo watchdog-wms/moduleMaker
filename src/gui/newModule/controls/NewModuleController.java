@@ -248,11 +248,22 @@ public class NewModuleController implements Initializable {
 	 */
 	@FXML
 	protected void handleContinueAction(final ActionEvent event) {
+		// check module name
+		if((fromCommandLine.isSelected() && moduleName.getText().length() == 0) || (!fromCommandLine.isSelected() && moduleName2.getText().length() == 0)) {
+			warning.setText("No name for the module was set!");
+			warning.setVisible(true);
+			return;
+		}
 
-		// if no output folder is set the actual folder will be set
-		String output = ".";
+		// check output folder
+		String output = null;
 		if (!outputFolder.getText().isEmpty()) {
 			output = outputFolder.getText();
+		}
+		else {
+			warning.setText("No output folder was set!");
+			warning.setVisible(true);
+			return;
 		}
 
 		// Sets the usage call
@@ -270,7 +281,7 @@ public class NewModuleController implements Initializable {
 		// TODO: in logic
 		File folder = new File(output);
 
-		String modName = "";
+		String modName = null;
 		String modCall = "";
 
 		if (!folder.exists()) {
@@ -301,7 +312,6 @@ public class NewModuleController implements Initializable {
 				modName = moduleName2.getText();
 				modCall = moduleCall2.getText();
 			}
-
 		}
 
 		if (failure >= 0) {
@@ -335,7 +345,7 @@ public class NewModuleController implements Initializable {
 			warning.setVisible(true);
 			break;
 		case -2:
-			warning.setText("Outputfolder does not exist. Please check!");
+			warning.setText("Output folder does not exist. Please check!");
 			warning.setVisible(true);
 			break;
 		case -3:

@@ -116,6 +116,28 @@ public class MenuControl implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Open the About page.
+	 * @param event
+	 */
+	@FXML
+	protected void openAbout(final ActionEvent event) {
+		final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/start/fxml/About.fxml"));
+		Parent root1;
+		try {
+			root1 = (Parent) fxmlLoader.load();
+
+			final Stage stage = new Stage();
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.setTitle("About");
+			stage.setResizable(false);
+			stage.setScene(new Scene(root1));
+			stage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * Open the Page newRegex to create a new regex file.

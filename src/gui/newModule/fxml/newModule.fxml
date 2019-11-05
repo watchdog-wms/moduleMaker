@@ -43,8 +43,6 @@
 								</RadioButton>
 								<RadioButton fx:id="parameterAfter" disable="true" layoutX="163.0" layoutY="168.0" mnemonicParsing="false" text="After call" toggleGroup="$callOrder" userData="a" />
 
-								<Text fx:id="warning" fill="#f20202" layoutX="14.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not possible to get usage with call: xxxxxx. Please check!" visible="false" />
-
 							</children>
 						</AnchorPane>
 					</content>
@@ -93,7 +91,7 @@
 				<Text layoutX="14.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OutputFolder:" />
 				<TextField fx:id="outputFolder" layoutX="96.0" layoutY="148.0" prefHeight="26.0" prefWidth="208.0" promptText="Path to Folder" />
 				<Button layoutX="308.0" layoutY="148.0" mnemonicParsing="false" onAction="#handleLocateFolderAction" prefHeight="26.0" prefWidth="96.0" text="Browse" />
-				<Text layoutX="15.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keep *.wm file?" />
+				<Text layoutX="15.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Store *.wm file?" />
 				<RadioButton layoutX="130.0" layoutY="188.0" mnemonicParsing="false" selected="true" text="Yes" userData="yes">
 					<toggleGroup>
 						<ToggleGroup fx:id="keepWM" />
@@ -107,6 +105,7 @@
 						<Button mnemonicParsing="false" onAction="#handleCancelAction" text="Cancel" />
 					</buttons>
 				</ButtonBar>
+				<Text fx:id="warning" fill="#f20202" layoutX="14.0" layoutY="235" strokeType="OUTSIDE" strokeWidth="0.0" text="Not possible to get usage with call: xxxxxx. Please check!" visible="false" />
 			</children>
 		</AnchorPane>
 	</children>

@@ -27,6 +27,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TextField;
@@ -43,6 +44,7 @@ public class PreferencesController implements Initializable {
 	@FXML ListView regexFileList;
 	@FXML TextField newRegexFilePath;
 	@FXML ToggleGroup activateDebug;
+	@FXML RadioButton yesDebug;
 
 	@FXML
 	protected void handleCancelAction(ActionEvent event) {
@@ -94,7 +96,9 @@ public class PreferencesController implements Initializable {
 	}
 
 	@FXML public void handleBrowseRegexFileAction(ActionEvent event) {
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Regex files (*.xml)", "*.xml");
 		FileChooser chooser = new FileChooser();
+		chooser.getExtensionFilters().add(extFilter);
 		chooser.setTitle("Open File");
 		File selectedFile = chooser.showOpenDialog(null);
 		if (selectedFile != null) {
@@ -126,7 +130,11 @@ public class PreferencesController implements Initializable {
 		regexFileList.setItems(data);
 
 		regexFileList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
+		
+		// init debug
+		if(logic.util.Debugger.enable) {
+			yesDebug.setSelected(true);
+		}
 	}
 
 	@FXML public void handleAddAction(ActionEvent event) {
