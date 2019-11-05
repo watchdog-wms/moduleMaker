@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--tophat2 -->
+<Usages>
+	<Usage usageLine='Usage:'>
+		<required>&lt;([^\[^\]]*?)\></required>
+		<optional>\[(.*?)\]</optional> 
+	</Usage>
+	<Options>
+		<shortOptC>-(.*) (.*)</shortOptC>
+		<longOptC>--(.*) (.*)</longOptC>
+		<shortOptCb>-(.*)</shortOptCb>
+		<longOptCb>--(.*)</longOptCb>
+		<shortOptP>(?:^|\s)-([^\s-/]*)</shortOptP>
+		<longOptP>(?:^|\s|(?:-[^\s-]*/))--(\S*)</longOptP>
+		<shortOptPb>(?:^|\s)-([^\s-/]*)</shortOptPb>
+		<longOptPb>(?:^|\s|(?:-[^\s-]*/))--(\S*)</longOptPb>
+		<sep>/</sep>						
+		<type>&lt;(.*?)\></type>
+		<integer>int</integer>
+		<filepath>filename</filepath>
+		<folderpath>dirname</folderpath>		
+		<boolean>-</boolean>
+		<string>string</string>
+		<double>-</double>
+		<default>\[\s*default:\s*(.*?)\s*\]</default>
+		<description>\((.*?)\)</description> 
+	</Options>
+ </Usages>

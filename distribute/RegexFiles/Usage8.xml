@@ -1,0 +1,26 @@
+<Usages>
+  <Usage usageLine='Usage: '>
+    <required> ([^\ ]*?) </required>
+    <optional>[([^\[]*?)]</optional>
+  </Usage>
+  <Options>
+    <shortOptC>-(.*) (.*)</shortOptC>
+    <longOptC>--(.*)=(.*)</longOptC>
+    <shortOptCb>-(.*)</shortOptCb>
+	<longOptCb>--(.*)</longOptCb>
+    <shortOptP>(?:^|\s)-([^\s-]*)</shortOptP>
+    <longOptP>(?:^|\s|, )--(\S*)=</longOptP>
+    <shortOptPb>(?:^|\s)-([^\s-]*)</shortOptPb>
+    <longOptPb>(?:^|\s|, )--(\S*)</longOptPb>
+    <sep>,</sep>
+    <type>-</type>
+    <integer>-</integer>
+    <filepath>-</filepath>
+    <folderpath>-</folderpath>
+    <boolean>-</boolean>
+    <string>-</string>
+	<double>-</double>
+    <default>(default: (.*))</default>
+    <description>\s{4,}(?!\S*\s{2,})(.*)</description>
+  </Options>
+</Usages>

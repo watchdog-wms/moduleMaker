@@ -1,0 +1,8 @@
+RegexFiles/Usage1.xml
+RegexFiles/Usage2.xml
+RegexFiles/Usage3.xml
+RegexFiles/Usage4.xml
+RegexFiles/Usage6.xml
+RegexFiles/Usage5.xml
+RegexFiles/Usage7.xml
+RegexFiles/Usage8.xml

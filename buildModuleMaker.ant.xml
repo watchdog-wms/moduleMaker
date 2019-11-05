@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MyGroovyBuild" default="compile">
+	<property name="groovy.home" value="/home/users/kluge/software/groovy-2.5.7" /> <!-- TODO: path to groovy install -->
+	<property name="groovy.version" value="2.5.7" />
+	<property name="build.dir" value="/home/users/kluge/workspace_newest/ModuleMakerWatchdog/distribute" /> <!-- TODO:temporary build dir -->
+
+	<path id="groovy.classpath">
+		<fileset dir="${groovy.home}/lib">
+			<include name="groovy*.jar" />
+		</fileset>
+		<fileset dir="${groovy.home}/lib/extras-jaxb">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="/usr/lib64/javafx-sdk-11.0.2/lib/">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<taskdef name="groovyc" classname="org.codehaus.groovy.ant.Groovyc" classpathref="groovy.classpath" />
+	<path id="build.classpath">
+		<fileset dir="${basedir}">
+			<include name="~/workspace_newest/Watchdog/lib/*.jar" />
+		</fileset>
+	</path>
+	<target name="compile" description="compile groovy sources">
+		<delete dir="${build.dir}"/>
+		<mkdir dir="${build.dir}/classes" />
+		<groovyc srcdir="src" listfiles="true" classpathref="groovy.classpath" destdir="${build.dir}/classes">
+			<javac source="1.9" target="11" debug="on" />
+		</groovyc>
+		<jar destfile="${build.dest}/moduleMaker.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Main-Class" value="gui.menu.Main" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="${build.dir}/classes" />
+			<fileset dir="src" />
+			<zipgroupfileset dir="${groovy.home}/lib/" includes="groovy*.jar" excludes="META-INF/*.SF" />
+		</jar>
+	</target>
+</project>

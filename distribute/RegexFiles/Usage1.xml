@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--samtools -->
+<Usages>
+	<Usage usageLine='Usage:'>
+		<required>&lt;(.*?)\></required>
+		<optional>\[(.*?)\][^]]?</optional> 	
+	</Usage>
+	<Options>
+		<shortOptC>-(.*) (.*)</shortOptC>
+		<longOptC>--(.*) (.*)</longOptC>
+		<shortOptCb>-(.*)</shortOptCb>
+		<longOptCb>--(.*)</longOptCb>
+		<shortOptP>(?:^|\s)-([^\s-,]*)</shortOptP>
+		<longOptP>(?:^|\s)--(\S*)</longOptP>
+		<shortOptPb>(?:^|\s)-([^\s-]*)</shortOptPb>
+		<longOptPb>(?:^|\s)--(\S*)</longOptPb>
+		<sep>,</sep>						
+		<type>([A-Z]{2,})\s</type>
+		<integer>INT</integer>
+		<filepath>FILE</filepath>
+		<folderpath>-</folderpath>
+		<boolean>-</boolean>
+		<double>FLOAT</double>
+		<string>STR</string>
+		<default>\s+\[(.*)\]</default>
+		<description>[\t\s{2,}](?!.*\s{2,})([^\t\[]+)(?:\[|$)</description> 
+	</Options>
+ </Usages>

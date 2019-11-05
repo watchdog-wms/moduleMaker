@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root"  xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.parseOptions.successful.controls.SuccessfulController">
+   <children>
+      <ButtonBar layoutX="446.0" layoutY="411.0" prefHeight="48.0" prefWidth="374.0" />
+      <Text layoutX="37.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modul creation was successful!">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Button fx:id="openFolder" layoutX="37.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleOpenFolderAction" text="Open Folder" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="res/watchdog.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="openXSD" layoutX="101.0" layoutY="164.0" onAction="#handleOpenXSDAction" text="link to xsd" />
+      <Hyperlink fx:id="openSH" layoutX="102.0" layoutY="188.0" onAction="#handleOpenSHAction" text="link to sh" />
+      <Label layoutX="37.0" layoutY="168.0" text="xsd:" />
+      <Label layoutX="38.0" layoutY="192.0" text="sh:" />
+   </children>
+</AnchorPane>

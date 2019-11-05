@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="414.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.loadWM.controls.LoadWMControler">
+   <children>
+      <ButtonBar layoutX="4.0" layoutY="345.0" prefHeight="40.0" prefWidth="408.0">
+        <buttons>
+          <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#handleCloseWindowAction" text="Cancel" />
+            <Button mnemonicParsing="false" onAction="#handleContinueAction" text="Continue" />
+        </buttons>
+      </ButtonBar>
+      <HBox layoutX="18.0" layoutY="125.0" prefHeight="33.0" prefWidth="366.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rename module">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Text>
+            <RadioButton mnemonicParsing="false" onAction="#enableNewModuleName" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup  />
+               </toggleGroup>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" onAction="#disableNewModuleName" selected="true" text="No" toggleGroup="$rename" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="54.0" prefHeight="33.0" prefWidth="386.0">
+         <children>
+            <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Path:">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="wmPath" prefHeight="26.0" prefWidth="248.0" promptText="Path to WatchdogModule file">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#locateFile" prefHeight="26.0" prefWidth="96.0" text="Browse" />
+         </children>
+      </HBox>
+      <HBox fx:id="newModuleName" alignment="CENTER_LEFT" disable="true" layoutX="18.0" layoutY="147.0" prefHeight="33.0" prefWidth="397.0">
+         <children>
+            <Text fx:id="newModuleNameText" disable="true" fill="#00000087" strokeType="OUTSIDE" strokeWidth="0.0" text="Module name:">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="moduleName" prefHeight="26.0" prefWidth="208.0" promptText="new module name" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="18.0" layoutY="247.0" prefHeight="33.0" prefWidth="386.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Output folder:">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="outputFolder" prefHeight="26.0" prefWidth="208.0" promptText="Path to Folder">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#handleLocateFolderAction" prefHeight="26.0" prefWidth="96.0" text="Browse" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="289.0" prefHeight="33.0" prefWidth="386.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Keep *.wm file?">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Text>
+            <RadioButton mnemonicParsing="false" selected="true" text="Yes" userData="yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="keepFile" />
+               </toggleGroup>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="No" toggleGroup="$keepFile" userData="no" />
+         </children>
+      </HBox>
+      <Label layoutX="18.0" layoutY="227.0" prefHeight="16.0" prefWidth="73.0" text="Tool Call:" />
+      <TextField fx:id="moduleCall" layoutX="114.0" layoutY="222.0" prefHeight="26.0" prefWidth="290.0" promptText="Call of Tool from module (i.e. samtools index)" />
+   </children>
+</AnchorPane>

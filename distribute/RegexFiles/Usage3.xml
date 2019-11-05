@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- featureCounts-->
+<Usages>
+	<Usage usageLine='Usage:'>
+		<required>\s(.*?)\s</required>
+		<optional>\[([^,]*?)\]</optional> 	
+	</Usage>
+	<Options>
+		<shortOptC>-(.*) (.*)</shortOptC>
+		<longOptC>--(.*) (.*)</longOptC>
+		<shortOptCb>-(.*)</shortOptCb>
+		<longOptCb>--(.*)</longOptCb>
+		<shortOptP>(?:^|\s)-([^\s-]*)</shortOptP>
+		<longOptP>(?:^|\s)--(\S*)</longOptP>
+		<shortOptPb>(?:^|\s)-([^\s-]*)</shortOptPb>
+		<longOptPb>(?:^|\s)--(\S*)</longOptPb>
+		<sep>-</sep>						
+		<type>&lt;(\S*)\></type>
+		<integer>int</integer>
+		<filepath>-</filepath>
+		<folderpath>-</folderpath>		
+		<boolean>-</boolean>
+		<string>input</string>
+		<double>-</double>
+		<default>\.\s(.*)\sby\sdefault.</default>
+		<!--<description>[\t\s{2,}](?!.*\s{2,})(?!.*-+)([^\t^\[]+)(?:\[|$)</description> -->
+		<description>[\t\s{2,}](?!.*\s{2,})([^\t^\[]+)(?:\[|$)</description>
+	</Options>
+ </Usages>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--ContextMap  mapper-->
+<Usages>
+	<Usage usageLine='Usage:'>
+		<required>&lt;([^\[^\]]*?)\></required>
+		<optional>\[([^,]*?)\]</optional> 	
+	</Usage>
+	<Options>
+		<shortOptC>-(.*) (.*)</shortOptC>
+		<longOptC>--(.*) (.*)</longOptC>
+		<shortOptCb>-(.*)</shortOptCb>
+		<longOptCb>--(.*)</longOptCb>
+		<shortOptP>(?:^|\s)-([^\s-]*)</shortOptP>
+		<longOptP>(?:^|\s)--(\S*)</longOptP>
+		<shortOptPb>(?:^|\s)-([^\s-]*)</shortOptPb>
+		<longOptPb>(?:^|\s)--(\S*)</longOptPb>
+		<sep>-</sep>						
+		<type>-</type>
+		<integer>-</integer>
+		<filepath>-</filepath>
+		<folderpath>-</folderpath>		
+		<boolean>-</boolean>
+		<string>-</string>
+		<double>-</double>
+		<default>\(default: (?!not set)(?!off)(.*)\)</default>
+		<description>&lt;([^>]*?)\></description> 
+	</Options>
+ </Usages>

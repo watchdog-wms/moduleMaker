@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Usages>
+	<Usage usageLine='Usage:'>
+		<required>([[:alnum:]]*?)</required>
+		<optional>\[([^,]*?)\]</optional>
+	</Usage>
+	<Options>
+		<shortOptC>-(.*) (.*)</shortOptC>
+		<longOptC>--(.*) (.*)</longOptC>
+		<shortOptCb>-(.*)</shortOptCb>
+		<longOptCb>--(.*)</longOptCb>
+		<shortOptP>(?:^|\s)-([^\s-]*)</shortOptP>
+		<longOptP>(?:^|\s)--(\S*)</longOptP>
+		<shortOptPb>(?:^|\s)-([^\s-]*)</shortOptPb>
+		<longOptPb>(?:^|\s)--(\S*)</longOptPb>
+		<sep> </sep>
+		<type>-</type>
+		<integer>INT</integer>
+		<filepath>FILE</filepath>
+		<folderpath>-</folderpath>
+		<boolean>-</boolean>
+		<string>-</string>
+		<double>-</double>
+		<default>-</default>
+		<description>[\t\s{2,}](?!.*\s{2,})([^\t^\[]+)(?:\[|$)</description>
+	</Options>
+ </Usages>

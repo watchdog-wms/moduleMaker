@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Usages>
+  <Usage usageLine='SYNOPSIS'>
+    <required>-</required>
+    <optional>[([^\[]*?)]</optional>
+  </Usage>
+  <Options>
+    <shortOptC>-(.*) (.*)</shortOptC>
+    <longOptC>--(.*)=(.*)</longOptC>
+    <shortOptCb>-(.*)</shortOptCb>
+	<longOptCb>--(.*)</longOptCb>
+    <shortOptP>(?:^|\s)-(\S*)</shortOptP>
+    <longOptP>(?:^|\s|, )--(\S*)</longOptP>
+    <shortOptPb>(?:^|\s)-(\S*)</shortOptPb>
+    <longOptPb>(?:^|\s|, )--(\S*)</longOptPb>
+    <sep>,</sep>
+    <type>-</type>
+    <integer>-</integer>
+    <filepath>-</filepath>
+    <folderpath>-</folderpath>
+    <boolean>-</boolean>
+    <string>-</string>
+	<double>-</double>
+    <default>-</default>
+    <description>[\t\s{2,}](?!.*\s{2,})([^\t^\[]+)(?:\[|$)</description>
+  </Options>
+</Usages>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.newRegex.controls.NewRegexController">
+   <children>
+      <ButtonBar layoutX="-8.0" layoutY="574.0" prefHeight="48.0" prefWidth="811.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#handleContinueAction" text="Save" />
+        </buttons>
+      </ButtonBar>
+      <GridPane layoutX="18.0" layoutY="25.0" prefHeight="538.0" prefWidth="785.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="394.0" minWidth="0.0" prefWidth="154.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="785.0" minWidth="10.0" prefWidth="631.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Start of usage line:" wrapText="true" />
+            <Label text="Labeling of required parameter in usage line:" wrapText="true" GridPane.rowIndex="1" />
+            <Label text="Labeling of optional parameter in usage line:" wrapText="true" GridPane.rowIndex="2" />
+            <Label text="Short option:" wrapText="true" GridPane.rowIndex="3" />
+            <TextField fx:id="startUsageLine" promptText="Start of usage line (i.e. Usage:)" GridPane.columnIndex="1">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <TextField fx:id="requiredOption" promptText="i.e. &lt;option&gt;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <TextField fx:id="optionalOption" promptText="i.e. [option]" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <TextField fx:id="shortOptionCall" promptText="call of short option with parameter (i.e. -option parameter)">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="shortOptionCallBoolean" promptText="call of short option (boolean/flag)(i.e. -option)">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField fx:id="shortOptionHelp" prefHeight="26.0" prefWidth="284.0" promptText="Short option in helptext (i.e. -option)">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="shortOptionHelpBoolean" prefHeight="26.0" prefWidth="284.0" promptText="Short option for boolean in helptext (i.e. -option)">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <TextField fx:id="longOptionCall" promptText="call of long option with parameter (i.e. --option parameter)">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="longOptionCallBoolean" promptText="call of long option (boolean/flag) (i.e. --option)">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField fx:id="longOptionHelp" promptText="Long option in helptext (i.e. --option)">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="longOptionHelpBoolean" promptText="Long option for boolean in helptext (i.e. --option)">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+            <Label text="Long option:" wrapText="true" GridPane.rowIndex="4" />
+            <Label text="Separator of short and long options:" wrapText="true" GridPane.rowIndex="5" />
+            <Label text="Type:" GridPane.rowIndex="6" />
+            <Label text="Default:" GridPane.rowIndex="7" />
+            <Label text="Description:" wrapText="true" GridPane.rowIndex="8" />
+            <TextField fx:id="sepOptions" promptText="i.e. short, long" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="typeLabel" promptText="Labeling of type (i.e. &lt;type&gt;)">
+                     <font>
+                        <Font size="11.0" />
+                     </font></TextField>
+                  <TextField fx:id="typeInteger" promptText="Typedefinition of integer (i.e. INT)" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="11.0" />
+                     </font></TextField>
+                  <TextField fx:id="typeString" promptText="Typedefinition of string (i.e. string)" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="11.0" />
+                     </font></TextField>
+                  <TextField fx:id="typeBoolean" promptText="Typedefinition of boolean (i.e. bool)" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="11.0" />
+                     </font></TextField>
+                  <TextField fx:id="typeFile" promptText="Typedefinition of filepaths (i.e. FILE)" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="11.0" />
+                     </font></TextField>
+                  <TextField fx:id="typeFolder" promptText="Typedefinition of folderpaths (i.e. FOLDER)" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="11.0" />
+                     </font></TextField>
+                  <TextField fx:id="typeDouble" promptText="Typedefinition of doubles or flaots(i.e. FLOAT)" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </GridPane>
+            <TextField fx:id="defaultValue" promptText="i.e. [ Default: def ]" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <TextField fx:id="description" promptText="i.e. &lt;des&gt;" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+         </children>
+      </GridPane>
+      <Text fx:id="warningMessage" fill="RED" layoutX="18.0" layoutY="586.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" />
+   </children>
+</AnchorPane>
