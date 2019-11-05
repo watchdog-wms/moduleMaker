@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MyGroovyBuild" default="compile">
-	<property name="groovy.home" value="/home/users/kluge/software/groovy-2.5.7" /> <!-- TODO: path to groovy install -->
-	<property name="groovy.version" value="2.5.7" />
-	<property name="build.dir" value="/home/users/kluge/workspace_newest/ModuleMakerWatchdog/distribute" /> <!-- TODO:temporary build dir -->
+	<property name="groovy.home" value="/PATH/TO/GROOVY" /> <!-- TODO: path to groovy install -->
+	<property name="groovy.version" value="2.5.7" /> <!-- TODO: groovy version -->
+	<property name="build.dir" value="/tmp/build" /> <!-- TODO: path to temporary build dir -->
+	<property name="build.dest" value="${basedir}/distribute" />
 
 	<path id="groovy.classpath">
 		<fileset dir="${groovy.home}/lib">
@@ -17,9 +18,7 @@
 	</path>
 	<taskdef name="groovyc" classname="org.codehaus.groovy.ant.Groovyc" classpathref="groovy.classpath" />
 	<path id="build.classpath">
-		<fileset dir="${basedir}">
-			<include name="~/workspace_newest/Watchdog/lib/*.jar" />
-		</fileset>
+		<fileset dir="${basedir}" />
 	</path>
 	<target name="compile" description="compile groovy sources">
 		<delete dir="${build.dir}"/>
