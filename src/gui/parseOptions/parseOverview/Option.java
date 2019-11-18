@@ -4,6 +4,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
 
 public class Option {
 	
@@ -16,7 +17,7 @@ public class Option {
     private StringProperty longOpt = new SimpleStringProperty();
     
     private StringProperty comboBox = new SimpleStringProperty("string");
-    
+     
     private StringProperty max = new SimpleStringProperty();
     
     private StringProperty min = new SimpleStringProperty();
@@ -32,13 +33,15 @@ public class Option {
     private StringProperty callType = new SimpleStringProperty();
 
     private StringProperty index = new SimpleStringProperty();
+    
+    private boolean isMod = true;
 
     
     
     /*public Option() {
     	super();
     }*/
-    
+        
     public Option(String index, String name, String shortOpt, String longOpt, String comboBoxValue, String min, String max, String defaultV, String restriction, String description, String call, String callType){
        // this.checkedBox = new SimpleBooleanProperty(checkedBox);
         this.shortOpt = new SimpleStringProperty(shortOpt);
@@ -53,6 +56,27 @@ public class Option {
         this.call = call;
         this.callType = new SimpleStringProperty(callType);
         this.index = new SimpleStringProperty(index);
+        
+        ChangeListener<String> modListener = (a, b, c) -> { System.out.println("mod"); this.isMod = true; };
+        this.shortOpt.addListener(modListener);
+        this.longOpt.addListener(modListener);
+        this.name.addListener(modListener);
+        this.comboBox.addListener(modListener);
+        this.min.addListener(modListener);
+        this.max.addListener(modListener);
+        this.defaultV.addListener(modListener);
+        this.restriction.addListener(modListener);
+        this.callType.addListener(modListener);
+        this.index.addListener(modListener);
+
+    }
+    
+    public boolean isModified() {
+    	return this.isMod;
+    }
+    
+    public void resetIsMod() {
+    	this.isMod = false;
     }
     
     public String getCall() {
@@ -211,6 +235,7 @@ public class Option {
 
 	public void setCall(String text) {
 		this.call = text;
+		this.isMod = true;
 	}
 
 

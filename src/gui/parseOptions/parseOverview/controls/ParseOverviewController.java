@@ -40,8 +40,6 @@ import logic.writeModule.WriteModule;
 
 public class ParseOverviewController implements Initializable {
 
-	private ObservableList<Option> data = FXCollections.observableArrayList();
-
 	@FXML
 	private TableView<Option> tableView;
 
@@ -114,7 +112,7 @@ public class ParseOverviewController implements Initializable {
 		
 		changedData = false;
 
-		data.removeAll(data);
+		this.tableView.getItems().clear();
 		
 		if(opts != null && !opts.isEmpty()) {
 			for(String path : opts.keySet()) {
@@ -134,7 +132,7 @@ public class ParseOverviewController implements Initializable {
 
 			
 			for (UsageOption uo : allVar) {
-				data.add(new Option(data.size()+"", uo.getName(), uo.getShortO(), uo.getLongO(),
+				this.tableView.getItems().add(new Option(this.tableView.getItems().size()+"", uo.getName(), uo.getShortO(), uo.getLongO(),
 						uo.getType(), uo.getMinO(), uo.getMaxO(),
 						uo.getDefaultV(), uo.getRestriction(), uo.getDescription(),
 						uo.getCall(), uo.getCallType()));
@@ -226,8 +224,6 @@ public class ParseOverviewController implements Initializable {
 		}
 		
 		tableView.getItems().clear();
-		//tableView.getItems().removeAll(data);
-		tableView.setItems(data);
 		tableView.refresh();
 	}
 
@@ -236,7 +232,7 @@ public class ParseOverviewController implements Initializable {
 	}
 
 	public ObservableList<Option> getActData() {
-		return data;
+		return this.tableView.getItems();
 	}
 	
 	public void setData(List<ObservableList<Option>> datas) {
@@ -244,15 +240,17 @@ public class ParseOverviewController implements Initializable {
 	}
 
 	public void setActData(List<Option> data2 ) {
-		this.data=(ObservableList<Option>) data2;
+		this.tableView.setItems((ObservableList<Option>) data2);
 	}
 
 	// Weitere spalte: callType short oder long..
 	@FXML
 	protected void handleNextPageAction(ActionEvent event) {
 		if (changedData) {
-			datas.get(pageCounter - 1).removeAll(datas.get(pageCounter - 1));
-			datas.get(pageCounter - 1).addAll(FXCollections.observableArrayList(data));
+			if (saveChanges()) {
+				datas.get(pageCounter - 1).clear();
+				datas.get(pageCounter - 1).addAll(FXCollections.observableArrayList(this.tableView.getItems()));
+			}
 		}
 		
 		/*rootPane.getChildren().removeAll(rootPane.getChildren());*/
@@ -273,12 +271,12 @@ public class ParseOverviewController implements Initializable {
 			searchAfterCalls();
 		}
 		peoc.initializeRequiredData(this.moduleName, this.outputFolder, this.moduleCall, longC, shortC, datas,
-				data, keepFile, heightProperty, widthProperty, menuPane, longCb, shortCb);
+				this.tableView.getItems(), keepFile, heightProperty, widthProperty, menuPane, longCb, shortCb);
 		
 	}
 
 	private void searchAfterCalls() {
-		for(Option opt : data) {
+		for(Option opt : this.tableView.getItems()) {
 			if(!opt.getCall().equals("-")) {
 				if(opt.getType().equals("boolean")){
 					if(opt.getCallType().equals("short")) {
@@ -317,8 +315,6 @@ public class ParseOverviewController implements Initializable {
 			}
 		}
 		tableView.getItems().removeAll(selectedCells);
-	//	data.removeAll(selectedCells);
-	//	tableView.getItems().addAll(data);
 		tableView.getSelectionModel().clearSelection();
 		tableView.refresh();
 		changedData = true;
@@ -356,10 +352,11 @@ public class ParseOverviewController implements Initializable {
 
 	@FXML
 	protected void handleClickForwardButtonAction(ActionEvent event) {
-		if (changedData) {
+		if (changedData || this.hasChangedOptions()) {
 			if (saveChanges()) {
+				this.resetChangedOptions();
 				datas.get(pageCounter - 1).clear();
-				datas.set(pageCounter - 1,FXCollections.observableArrayList(data)); //funktionerit beim weiten durchlauf nicht?
+				datas.get(pageCounter - 1).addAll(FXCollections.observableArrayList(this.tableView.getItems()));
 			}
 		}
 		changedData = false;
@@ -375,44 +372,58 @@ public class ParseOverviewController implements Initializable {
 		}
 		pageCounterText.setText(pageCounter + " of " + maxPages);
 		
-		//tableView.getItems().removeAll(data);
 		tableView.getItems().clear();
-	//	data.removeAll(data);
-	//	data.addAll(datas.get(pageCounter - 1));
-		data = FXCollections.observableArrayList(datas.get(pageCounter - 1));
-	//	tableView.getItems().addAll(datas.get(pageCounter - 1));
-		tableView.getItems().addAll(data);
+		tableView.getItems().addAll(FXCollections.observableArrayList(datas.get(pageCounter - 1)));
 		tableView.refresh();
+		this.resetChangedOptions();
 
+	}
+
+	/**
+	 * resets all options after save (e.g. no modifications anymore)
+	 */
+	private void resetChangedOptions() {
+		for(Option o : tableView.getItems()) {
+			o.resetIsMod();
+		}
+	}
+
+	/**
+	 * tests if there are any modifications on options
+	 * @return
+	 */
+	private boolean hasChangedOptions() {
+		for(Option o : tableView.getItems()) {
+			if(o.isModified())
+				return true;
+		}
+		return false;
 	}
 
 	@FXML
 	protected void handleClickBackButtonAction(ActionEvent event) {
-		if (changedData) {
+		if (changedData || this.hasChangedOptions()) {
 			if (saveChanges()) {
-				datas.get(pageCounter - 1).removeAll(datas.get(pageCounter - 1));
-			//	datas.get(pageCounter - 1).addAll(data);
-				datas.set(pageCounter - 1,FXCollections.observableArrayList(data));
+				this.resetChangedOptions();
+				datas.get(pageCounter - 1).clear();
+				datas.get(pageCounter - 1).addAll(FXCollections.observableArrayList(tableView.getItems()));
 			}
 		}
 		changedData = false;
 		if (pageCounter > 1) {
 			pageCounter--;
 			pageCounterText.setText(pageCounter + " of " + maxPages);
-			if (pageCounter <= 4) {
+			if (pageCounter <= maxPages) {
 				forwardButton.setDisable(false);
 			}
 		}
 		if (pageCounter == 1) {
 			backButton.setDisable(true);
 		}
-		//tableView.getItems().removeAll(data);
 		tableView.getItems().clear();
-		//data.removeAll(data);
-		//data.addAll(datas.get(pageCounter - 1));
-		data = FXCollections.observableArrayList(datas.get(pageCounter - 1));
-		tableView.getItems().addAll(datas.get(pageCounter - 1));
+		tableView.getItems().addAll(FXCollections.observableArrayList(datas.get(pageCounter - 1)));
 		tableView.refresh();
+		this.resetChangedOptions();
 	}
 
 	private WriteModule wm; // TODO: umbennen
@@ -421,18 +432,12 @@ public class ParseOverviewController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		data.removeAll(data);
-
-		tableView.setItems(data);
-
+		tableView.getItems().clear();
 		tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		
-		
-
 	}
 
 	private Option getOption(String name) {
-		for (Option opt : data) {
+		for (Option opt : tableView.getItems()) {
 			if (opt.getName().equals(name)) {
 				return opt;
 			}
@@ -441,9 +446,7 @@ public class ParseOverviewController implements Initializable {
 	}
 
 	public void addOption(Option option) {
-		//data.add(option);
 		tableView.getItems().add(option);
-		//datas.get(pageCounter - 1).add(option);
 		tableView.refresh();
 	}
 
@@ -506,7 +509,7 @@ public class ParseOverviewController implements Initializable {
 
 	public String getDataSize() {
 		// TODO Auto-generated method stub
-		return data.size()+"";
+		return tableView.getItems().size()+"";
 	}
 	
 	@FXML
