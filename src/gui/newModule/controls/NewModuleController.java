@@ -399,9 +399,12 @@ public class NewModuleController implements Initializable {
 	public void handleAddParameterAction(final Event event) {
 		if (addPara.getSelectedToggle().getUserData().equals("yes")) {
 			parameterAfter.setDisable(false);
+			parameterAfter.setSelected(true);
 			parameterBefore.setDisable(false);
 			moduleExtraCall.setDisable(false);
 		} else {
+			parameterBefore.setSelected(false);
+			parameterAfter.setSelected(false);
 			parameterAfter.setDisable(true);
 			parameterBefore.setDisable(true);
 			moduleExtraCall.setDisable(true);
