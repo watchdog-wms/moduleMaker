@@ -57,7 +57,7 @@ public class Option {
         this.callType = new SimpleStringProperty(callType);
         this.index = new SimpleStringProperty(index);
         
-        ChangeListener<String> modListener = (a, b, c) -> { System.out.println("mod"); this.isMod = true; };
+        ChangeListener<String> modListener = (a, b, c) -> this.isMod = true;
         this.shortOpt.addListener(modListener);
         this.longOpt.addListener(modListener);
         this.name.addListener(modListener);

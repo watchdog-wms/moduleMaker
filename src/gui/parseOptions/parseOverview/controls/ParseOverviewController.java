@@ -246,7 +246,7 @@ public class ParseOverviewController implements Initializable {
 	// Weitere spalte: callType short oder long..
 	@FXML
 	protected void handleNextPageAction(ActionEvent event) {
-		if (changedData) {
+		if (changedData || this.hasChangedOptions()) {
 			if (saveChanges()) {
 				datas.get(pageCounter - 1).clear();
 				datas.get(pageCounter - 1).addAll(FXCollections.observableArrayList(this.tableView.getItems()));
