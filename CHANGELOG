@@ -1,0 +1,26 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
+Changelog started with version 1.0.0
+
+## [Unreleased]
+
+## [1.0.1] - 2019-11-19
+### Added
+- About page
+
+### Fixed
+- Changed the way how binaries are called internally to make it system independent
+- Allow only XML files to be added to the regex file list
+- Fixed error when neither before or after command radio box was selected
+- Save confirmation is now requested options were changed, added or deleted
+
+### Changed
+- Added a few additional error checks
+- Save debug setting
+- Changed text of start page
+
+
+## [1.0.0] - 2019-10-18
+### Added
+- Released moduleMaker
