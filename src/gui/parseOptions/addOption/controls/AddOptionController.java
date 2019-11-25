@@ -107,7 +107,7 @@ public class AddOptionController {
 		}
 		return true;
 	}
-	
+
 	@FXML
 	protected void handleContinueAction(final ActionEvent event) {
 		if(checkArguments()) {

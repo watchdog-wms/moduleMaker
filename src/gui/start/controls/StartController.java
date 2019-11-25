@@ -1,6 +1,7 @@
 package gui.start.controls;
 
 import gui.menu.Main;
+import gui.parseOptions.successful.controls.SuccessfulController;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.event.ActionEvent;
@@ -12,7 +13,7 @@ public class StartController {
 	@FXML TabPane rootPane;
 
 	@FXML public void handleClickedDokuEN(ActionEvent event) {
-		Main.getHostSer().showDocument("DocumentationEN.pdf");
+		Main.getHostSer().showDocument(SuccessfulController.getPath("DocumentationEN.pdf"));
 	}
 	
 	public void setSizeProperties(DoubleBinding doubleBinding, ReadOnlyDoubleProperty widthProperty) {

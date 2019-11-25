@@ -39,9 +39,9 @@
                   <Text layoutX="44.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Options can then be edited like during new module creation." />
                   <Text layoutX="44.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subsequently, a new .sh and XSD file will be created." />
                   <Text layoutX="44.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This allows creating a new regex file (file extension .xml)." />
-                  <Text layoutX="44.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A new regex file can be added to the regex list via in the preferences." />
-                  <Text layoutX="44.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For more detailed information and explanation please see the documentation:" />
-                  <Hyperlink layoutX="198.0" layoutY="336.0" onAction="#handleClickedDokuEN" text="Documentation(en)" />
+                  <Text layoutX="44.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A new regex file can be added to the regex list via the preferences." />
+                  <Text layoutX="44.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For more detailed information and explanation please see the documentation:" />
+                  <Hyperlink layoutX="198.0" layoutY="355.0" onAction="#handleClickedDokuEN" text="Documentation(en)" />
                </children></AnchorPane>
       </content>
     </Tab>

@@ -233,6 +233,7 @@ public class ParseExtraOptionsController {
 			poc.setModuleName(moduleName);
 			poc.setOutputFolder(outputFolder);
 			poc.initializeDataWithoutOpts(heightProperty, widthProperty);
+			poc.handleClickBackButtonAction(null);
 			poc.setKeepFile(keep);
 			poc.setMenuPane(menuPane);
 

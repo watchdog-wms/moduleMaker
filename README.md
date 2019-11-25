@@ -16,7 +16,8 @@ Alternatively, you can run **helper_scripts/downloadModuleMaker.sh** located in
 #### RUN MODULE MAKER
 
 The distributed jar files are build for Java 11 and are launched internally 
-by a Bash script. In order to start the moduleMaker, call
+by a Bash script. In order to start the moduleMaker, change into the 
+**moduleMaker/** directory and call
 
 ./moduleMaker.sh
 

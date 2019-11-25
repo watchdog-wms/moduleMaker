@@ -41,7 +41,7 @@ import logic.writeModule.WriteModule;
 public class ParseOverviewController implements Initializable {
 
 	@FXML
-	private TableView<Option> tableView;
+	public TableView<Option> tableView;
 
 	@FXML
 	private TableColumn<?, ?> checkboxColumn;
@@ -351,9 +351,9 @@ public class ParseOverviewController implements Initializable {
 	}
 
 	@FXML
-	protected void handleClickForwardButtonAction(ActionEvent event) {
+	public void handleClickForwardButtonAction(ActionEvent event) {
 		if (changedData || this.hasChangedOptions()) {
-			if (saveChanges()) {
+			if (event != null && saveChanges()) {
 				this.resetChangedOptions();
 				datas.get(pageCounter - 1).clear();
 				datas.get(pageCounter - 1).addAll(FXCollections.observableArrayList(this.tableView.getItems()));
@@ -401,9 +401,9 @@ public class ParseOverviewController implements Initializable {
 	}
 
 	@FXML
-	protected void handleClickBackButtonAction(ActionEvent event) {
+	public void handleClickBackButtonAction(ActionEvent event) {
 		if (changedData || this.hasChangedOptions()) {
-			if (saveChanges()) {
+			if (event != null && saveChanges()) {
 				this.resetChangedOptions();
 				datas.get(pageCounter - 1).clear();
 				datas.get(pageCounter - 1).addAll(FXCollections.observableArrayList(tableView.getItems()));

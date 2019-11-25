@@ -6,7 +6,6 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.File;
-import java.io.IOException;
 
 import gui.menu.Main;
 import javafx.beans.binding.DoubleBinding;
@@ -31,9 +30,13 @@ public class SuccessfulController {
 		openXSD.setText(new File(xsd).getAbsolutePath());
 		openSH.setText(new File(sh).getAbsolutePath());
 	}
+	
+	public static String getPath(String input) {
+		return new File(input).getAbsoluteFile().toURI().toString();
+	}
 
 	@FXML public void handleOpenFolderAction(ActionEvent event) {
-		Main.getHostSer().showDocument(folder);
+		Main.getHostSer().showDocument(getPath(this.folder));
 	}
 
 	@FXML public void handleStartWatchdogAction(ActionEvent event) {
@@ -41,16 +44,15 @@ public class SuccessfulController {
 	}
 
 	@FXML public void handleOpenXSDAction(ActionEvent event) {
-		Main.getHostSer().showDocument(xsd);
+		Main.getHostSer().showDocument(getPath(this.xsd));
 	}
 	
 	@FXML public void handleOpenSHAction(ActionEvent event) {
-		Main.getHostSer().showDocument(sh);
+		Main.getHostSer().showDocument(getPath(this.sh));
 	}
 
 	public void setSize(DoubleBinding heightProperty, ReadOnlyDoubleProperty widthProperty) {
 		root.prefHeightProperty().bind(heightProperty);
         root.prefWidthProperty().bind(widthProperty);		
 	}
-	
 }

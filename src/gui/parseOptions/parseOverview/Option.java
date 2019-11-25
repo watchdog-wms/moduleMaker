@@ -34,7 +34,7 @@ public class Option {
 
     private StringProperty index = new SimpleStringProperty();
     
-    private boolean isMod = true;
+    private boolean isMod = false;
 
     
     
