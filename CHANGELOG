@@ -5,6 +5,12 @@ Changelog started with version 1.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2019-11-26
+### Fixed
+- Corrected wrong file path of documentation PDF
+- Removed save question when nothing was changed
+- Load detected options back to overview table when cancel button is clicked
+
 ## [1.0.1] - 2019-11-19
 ### Added
 - About page
