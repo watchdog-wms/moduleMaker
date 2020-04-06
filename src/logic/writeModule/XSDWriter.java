@@ -143,8 +143,8 @@ public class XSDWriter {
 	private void constructReturnTypeElements() {
 		if (returnTypeElementsData != null) {
 			for (ReturnTypeElement rte : returnTypeElementsData) {
-				returnTypeElements += "<x:element name=\"" + rte.getReturnTypeName()
-							+ "\" type=\"x:string\"/>\n";
+				returnTypeElements += "<x:element name=\"" + rte.getParameterName()
+							+ "\" type=\"x:" + rte.getReturnTypeName() + "\"/>\n";
 			}
 		}
 

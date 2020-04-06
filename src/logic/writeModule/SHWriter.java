@@ -235,15 +235,13 @@ public class SHWriter {
 	 * @param returnParams
 	 */
 	private void constructReturnParameter(final List<ReturnTypeElement> returnParams) {
-		int paraCounter = 0;
+		String tab = "";
 		for (ReturnTypeElement returnParam : returnParams) {
-			returnParameter += "writeParam2File '$FLAGS_returnFilePath" 
-					+ paraCounter + "' '"
-					+ returnParam.getReturnTypeName() + "' '$FLAGS_" 
-					+ returnParam.getParameterName() + "'\n";
-			returnParameter += "blockUntilFileIsWritten '$FLAGS_returnFilePath" 
-					+ paraCounter + "'\n";
+			returnParameter += tab + "writeParam2File \"$FLAGS_returnFilePath\" \""
+					+ returnParam.getParameterName() + "\" \"TODO: add value\"\n";
+			tab = "\t\t";
 		}
+		returnParameter += tab + "blockUntilFileIsWritten \"$FLAGS_returnFilePath\"\n";
 	}
 
 	/**
@@ -265,7 +263,7 @@ public class SHWriter {
 			final List<String> existenceCheckNeededFolders,
 			final List<ReturnTypeElement> returnParams) {
 		constructExistenceCheck(existenceCheckNeededFiles, existenceCheckNeededFolders);
-		if (returnParams != null) {
+		if (returnParams != null && returnParams.size() > 0) {
 			constructReturnParameter(returnParams);
 		}
 		writeInTemplate(inFile, outFile);

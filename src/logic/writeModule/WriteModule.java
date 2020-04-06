@@ -297,6 +297,18 @@ public class WriteModule {
 
 	public void setReturnTypeElements(final ObservableList<ReturnTypeElement> returnTypeElementsData) {
 		this.returnTypeElementsData = returnTypeElementsData;
+		
+		UsageOption u = new UsageOption();
+		u.setRequired(false);
+		u.setType("-");
+		u.setDefaultV("");
+		u.setShortO("");
+		u.setRestriction("");
+		u.setMinO("0");
+		u.setName("returnFilePath");
+		u.setDescription("path to the return variables file");
+		
+		this.allVariables.add(u);
 	}
 
 }

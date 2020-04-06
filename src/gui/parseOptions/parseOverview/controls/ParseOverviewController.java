@@ -255,7 +255,7 @@ public class ParseOverviewController implements Initializable {
 		
 		/*rootPane.getChildren().removeAll(rootPane.getChildren());*/
 		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("/gui/parseOptions/parseExtraOptions/fxml/parseExtraOptionsNew.fxml"));
+				getClass().getResource("/gui/parseOptions/parseExtraOptions/fxml/parseExtraOptions.fxml"));
 		//rootPane.getChildren().add(fxmlLoader.load());
 		try {
 			menuPane.getChildren().clear();

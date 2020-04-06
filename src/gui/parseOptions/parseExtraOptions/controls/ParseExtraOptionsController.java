@@ -105,10 +105,7 @@ public class ParseExtraOptionsController {
 	private Text textFilesAndFolders;
 
 	@FXML
-	private ComboBox<?> typeReturnTypeElement;
-
-	@FXML
-	private TextField nameReturnTypeElement;
+	private ComboBox<String> typeReturnElement;
 
 	@FXML
 	private TextField parameterName;
@@ -330,9 +327,9 @@ public class ParseExtraOptionsController {
 		WriteModule wm = new WriteModule(moduleName);
 		if (returnTypeElementsData.size() > 0)
 			wm.setReturnTypeElements(returnTypeElementsData);
+		
 		wm.writeInTemplates(this.outputFolder + "/" + this.moduleName + ".wm",
-				this.outputFolder + "/" + this.moduleName + ".sh", this.outputFolder + "/" + this.moduleName + ".xsd",
-				call, files, folders, sepParas);
+		this.outputFolder + "/" + this.moduleName + ".sh", this.outputFolder + "/" + this.moduleName + ".xsd", call, files, folders, sepParas);
 
 		try {
 			root.getChildren().removeAll(root.getChildren());
@@ -354,14 +351,14 @@ public class ParseExtraOptionsController {
 
 	@FXML
 	public void handleAddNewReturnTypeAction(ActionEvent event) {
-		ReturnTypeElement newReturnType = new ReturnTypeElement(nameReturnTypeElement.getText(),
-				parameterName.getText());
-
-		returnTypeElementsData.add(newReturnType);
-		returnTypeElementTable.getItems().add(newReturnType);
-		returnTypeElementTable.refresh();
-		nameReturnTypeElement.setText("");
-		parameterName.setText("");
+		if(parameterName.getText().length() > 0) {
+			ReturnTypeElement newReturnType = new ReturnTypeElement(parameterName.getText(), typeReturnElement.getSelectionModel().getSelectedItem());
+			
+			returnTypeElementsData.add(newReturnType);
+			returnTypeElementTable.getItems().add(newReturnType);
+			returnTypeElementTable.refresh();
+			parameterName.setText("");
+		}
 	}
 
 	@FXML

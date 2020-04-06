@@ -6,17 +6,17 @@ import javafx.beans.property.StringProperty;
 public class ReturnTypeElement {
 
 
-    private StringProperty nameReturnType = new SimpleStringProperty();
+    private StringProperty returnType = new SimpleStringProperty();
     
     private StringProperty parameterName = new SimpleStringProperty();
     
-    public ReturnTypeElement(String text, String string) {
-    	this.nameReturnType = new SimpleStringProperty(text);
-    	this.parameterName = new SimpleStringProperty(string);
+    public ReturnTypeElement(String name, String type) {
+    	this.returnType = new SimpleStringProperty(type);
+    	this.parameterName = new SimpleStringProperty(name);
     }
 
 	public StringProperty nameReturnTypeProperty(){
-        return this.nameReturnType;
+        return this.returnType;
     }
     
     public java.lang.String getReturnTypeName() {
