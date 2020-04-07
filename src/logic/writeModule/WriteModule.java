@@ -23,6 +23,7 @@ import logic.util.Debugger;
  */
 public class WriteModule {
 
+	public static final String RETURN_FILE_PATH = "returnFilePath";
 	private final String shTemplate = "moduleTemplates/module.template.sh";
 	private final String xsdTemplate = "moduleTemplates/module.template.xsd";
 
@@ -305,7 +306,8 @@ public class WriteModule {
 		u.setShortO("");
 		u.setRestriction("");
 		u.setMinO("0");
-		u.setName("returnFilePath");
+		u.setMaxO("1");
+		u.setName(RETURN_FILE_PATH);
 		u.setDescription("path to the return variables file");
 		
 		this.allVariables.add(u);

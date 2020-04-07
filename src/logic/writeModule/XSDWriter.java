@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -71,6 +72,15 @@ public class XSDWriter {
 	public XSDWriter(final WriteModule writeModule) {
 		this.moduleName = writeModule.getToolname().replaceAll(" ", "");
 		this.allVariables = writeModule.getAllVariables();
+		
+		// remove return file path if present
+		for (Iterator<UsageOption> it = this.allVariables.iterator(); it.hasNext(); ) {
+			UsageOption uo = it.next();
+			if(WriteModule.RETURN_FILE_PATH.equals(uo.getName())) {
+				it.remove();
+				break;
+			}
+		}
 	}
 
 	/**

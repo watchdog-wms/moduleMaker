@@ -154,7 +154,7 @@ public class SHWriter {
 		}
 		String checkArguments = "";
 		for (UsageOption uo : allVariables) {
-			if (uo.getType().equals("boolean")) {
+			if (uo.getType().equals("boolean") || WriteModule.RETURN_FILE_PATH.equals(uo.getName())) {
 				continue;
 			}
 			checkArguments += "if  [ ! -z \"$FLAGS_" + uo.getName() + "\" ]; then\n";
