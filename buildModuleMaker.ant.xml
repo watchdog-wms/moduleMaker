@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MyGroovyBuild" default="compile">
 	<property name="groovy.home" value="/PATH/TO/GROOVY" /> <!-- TODO: path to groovy install -->
-	<property name="groovy.version" value="2.5.7" /> <!-- TODO: groovy version -->
+	<property name="groovy.version" value="2.5.13" /> <!-- TODO: groovy version -->
 	<property name="build.dir" value="/tmp/build" /> <!-- TODO: path to temporary build dir -->
 	<property name="build.dest" value="${basedir}/distribute" />
 
@@ -12,7 +12,7 @@
 		<fileset dir="${groovy.home}/lib/extras-jaxb">
 			<include name="*.jar" />
 		</fileset>
-		<fileset dir="/usr/lib64/javafx-sdk-11.0.2/lib/">
+		<fileset dir="/usr/lib64/javafx-sdk-11/lib/"> <!-- TODO: path to javafx sdk -->
 			<include name="*.jar" />
 		</fileset>
 	</path>
