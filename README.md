@@ -24,6 +24,11 @@ by a Bash script. In order to start the moduleMaker, change into the
 The moduleMaker depends on the JavaFX SDK. The Bash script will try 
 to identify the install location of the JavaFX SDK automatically.
 
+#### BUILD
+1) adapt **buildModuleMaker.ant.xml**
+2) set JAVA_HOME to java11 using `export JAVA_HOME=/path/to/jre-11-openjdk/`
+3) run `ant -f buildModuleMaker.ant.xml`
+
 #### CONTACT
 If you have any questions or suggestions, please feel free to contact me:
 michael.kluge@bio.ifi.lmu.de

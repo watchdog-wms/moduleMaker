@@ -147,7 +147,7 @@ public class SHWriter {
 		String flagsAsString = "flagsAsString=\"\"\n";
 		// flags have not attributes
 		for (UsageOption uo : booleanVariables) {
-			flagsAsString += "if [ \"FLAGS_" + uo.getName() + "\" == 0 ]; then\n";
+			flagsAsString += "if [ \"$FLAGS_" + uo.getName() + "\" == 0 ]; then\n";
 			flagsAsString += " flagsAsString=\"$flagsAsString " 
 			+ uo.getOptionCall() + " \"\n";
 			flagsAsString += "fi\n";

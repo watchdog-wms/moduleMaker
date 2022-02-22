@@ -4,6 +4,7 @@
 	<property name="groovy.version" value="2.5.13" /> <!-- TODO: groovy version -->
 	<property name="build.dir" value="/tmp/build" /> <!-- TODO: path to temporary build dir -->
 	<property name="build.dest" value="${basedir}/distribute" />
+	<!-- TODO: set environment variable : export JAVA_HOME="/path/to/jre-11-openjdk/" -->
 
 	<path id="groovy.classpath">
 		<fileset dir="${groovy.home}/lib">
